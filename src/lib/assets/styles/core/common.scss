@@ -1,0 +1,212 @@
+html {
+  display: block !important;
+  height: 100%;
+  font-family: $fontBase;
+  font-size: 10px;
+  line-height: 1.4;
+  color: $black;
+  background: $lightgray;
+  // font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  // FLUID FONT
+  // font-size: calc( Fmin + (Fmax - Fmin) * (100vw - Vmin)/(Vmax - Vmin) );
+  @media screen and (max-width: 767px) {
+    font-size: calc(10px + 13 * (100vw - 375px) / 447);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    font-size: calc(10px + 4 * (100vw - 768px) / 256);
+  }
+
+  @media (min-width: 1025px)  and (max-width: 1360px) {
+    font-size: calc(8px + 2 * (100vw - 1024px) / 335);
+  }
+
+  // popup bugfix in iOS
+  &.isScrollLocked {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+body {
+  position: relative;
+  height: 100%;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+
+  &.isScrollLocked {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}
+
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
+.main {
+  position: relative;
+  flex: auto;
+}
+
+.section {
+  &--black {
+    background: $black;
+  }
+
+  &--gray {
+    background: $gray;
+  }
+
+  &--lightgray {
+    background: $lightgray;
+  }
+}
+
+.container {
+  @include desktop {
+    max-width: $containerWidth;
+    margin: 0 auto;
+    padding: $sectionOffsetVertical $sectionOffsetHorizontal;
+  }
+
+  @include tablet {
+    padding: $sectionOffsetVerticalTablet $sectionOffsetHorizontalTablet;
+  }
+
+  @include mobile {
+    padding: $sectionOffsetVerticalMobile $sectionOffsetHorizontalMobile;
+  }
+
+  &.no-ptb {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+
+img {
+  max-width: 100%;
+}
+
+
+.visually-hidden {
+  position: absolute!important;
+  width: 1px!important;
+  height: 1px!important;
+  margin: -1px!important;
+  padding: 0!important;
+  clip: rect(0 0 0 0);
+  border: 0!important;
+  overflow: hidden!important;
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+}
+
+.link {
+  color: $blue;
+  text-decoration: underline;
+  transition: $t;
+  &:active,
+  &:focus {
+    text-decoration-color: transparent;
+  }
+  @include desktop {
+    &:hover {
+      text-decoration-color: transparent;
+    }
+  }
+}
+
+[v-cloak] {
+  display: none !important;
+}
+
+.preloader {
+  &::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 3.5rem);
+    left: calc(50% - 3.5rem);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 3px solid transparent;
+    border-top-color: $gray;
+    border-left-color: $gray;
+    pointer-events: none;
+    -webkit-animation: 1s spin linear infinite;
+    animation: 1s spin linear infinite;
+  }
+  .isReady & {
+    &::before {
+      content: none;
+    }
+  }
+}
+
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity $t
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transition: none;
+}
+
+
+
+.notes-enter-active,
+.notes-leave-active {
+  transform-origin: top left;
+  transition: opacity $t, transform $t;
+}
+
+.notes-leave-to {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.notes-enter {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

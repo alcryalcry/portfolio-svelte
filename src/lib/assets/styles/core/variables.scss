@@ -1,0 +1,54 @@
+$fontBase:                 'Roboto', Arial, sans-serif;
+
+
+$white:                   #ffffff;
+$black:                   #202124;
+$gray:                  	#5f6368;
+$lightgray:             	#f5f5f5;
+$lightgray2:              rgba(0,0,0,.5);
+$bordergray:              rgba(0,0,0,.12);
+
+
+$cyan:                     #7dfcf5;
+$yellow:                   #FFFF33;
+$green:                    #c3fa8c;
+$pink:                     #fcbac4;
+$blue:                     #32467F;
+$lightblue:                #CACEDB;
+
+
+$darkBlue:                 #232937;
+$darkBlueText:             #91d4b5;
+
+
+$easeOutCubic:              cubic-bezier(0.215, 0.61, 0.355, 1);
+$t:                    .2s $easeOutCubic;
+$tc:                   color .2s $easeOutCubic;
+
+
+
+
+
+
+
+$mobile: 'screen and (max-width: 767px)';
+$tablet: 'screen and (min-width: 768px) and (max-width: 1024px)';
+$mobile-tablet: 'screen and (max-width: 1024px)';
+$tablet-desktop: 'screen and (min-width: 768px)';
+$desktop: 'screen and (min-width: 1025px)';
+
+
+
+$colCount: 12;
+$colGapDesktop: 1rem;
+$colGapTablet: 1rem;
+
+$containerWidth: 116rem;
+$containerWidthTablet: 76.8rem;
+
+$sectionOffsetVertical: 8rem;
+$sectionOffsetHorizontal: 3rem;
+$sectionOffsetHorizontalTablet: 4rem;
+$sectionOffsetVerticalTablet: 6rem;
+$sectionOffsetVerticalMobile: 4rem;
+$sectionOffsetHorizontalMobile: 2rem;

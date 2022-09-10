@@ -3,6 +3,6 @@ services:
   mysite:
     build: .
     image: thealexcode/mysite
-    container_name: mysite
+    restart: always
     ports:
-      - "3000:80"
+      - 3000:80
